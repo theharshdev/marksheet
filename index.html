@@ -20,7 +20,10 @@
         </p>
       </div>
       <div class="text-zinc-400">
-        <p id="warning-para" class="text-sm text-center mb-4">
+        <p
+          id="warning-para"
+          class="text-sm text-center mb-4 transition duration-500"
+        >
           Feilds with * is mendatory to fill.
         </p>
       </div>
@@ -30,14 +33,14 @@
           autocomplete="false"
           type="text"
           id="subject-name"
-          placeholder="Name your Subject *"
+          placeholder="Name your subject *"
           class="block w-full border border-zinc-600 rounded-md outline-0 focus:bg-zinc-700 transition duration-500 py-3 px-6 placeholder:text-zinc-400 font-medium"
         />
         <input
           autocomplete="false"
           type="number"
           id="total-marks"
-          placeholder="Enter the Total marks *"
+          placeholder="Enter the total marks *"
           class="block w-full border border-zinc-600 rounded-md outline-0 focus:bg-zinc-700 transition duration-500 py-3 px-6 placeholder:text-zinc-400 font-medium"
         />
         <input
@@ -50,28 +53,34 @@
         <button
           id="add-to-table-btn"
           type="button"
-          class="bg-zinc-600 font-medium text-lg whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer"
+          class="bg-zinc-600 font-medium lg:text-lg text-base whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer"
         >
           Add to table
         </button>
       </div>
       <!-- Marksheet -->
       <div
-        class="p-5 mt-8 border border-zinc-600 rounded-md bg-zinc-700/30 relative"
+        class="p-5 mt-5 border border-zinc-600 rounded-md bg-zinc-700/30 relative"
       >
-        <h3 class="text-2xl text-center font-medium">Subject Marks Summary</h3>
-        <button
-          id="clear-table-btn"
-          type="button"
-          class="bg-zinc-600 font-medium text-lg whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer absolute top-3 right-5 hidden"
+        <div
+          class="flex md:flex-nowrap flex-wrap justify-between items-center gap-4"
         >
-          Clear the Table
-        </button>
-        <!-- Main table -->
-        <div class="overflow-auto">
-          <div
-            class="flex flex-col gap-3 border border-zinc-600 rounded-md p-5 mt-6 bg-zinc-800 min-w-225"
+          <h3
+            class="lg:text-2xl md:text-start text-center text-lg font-medium w-full"
           >
+            Subject Marks Summary
+          </h3>
+          <button
+            id="clear-table-btn"
+            type="button"
+            class="bg-zinc-600 font-medium md:w-fit w-full lg:text-lg text-base whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer hidden"
+          >
+            Clear the Table
+          </button>
+        </div>
+        <!-- Main table -->
+        <div class="overflow-auto mt-5 border border-zinc-600 rounded-md">
+          <div class="flex flex-col gap-3 p-5 bg-zinc-800 min-w-225">
             <!-- Header -->
             <div class="grid grid-cols-6 gap-3">
               <p class="text-xl font-medium whitespace-nowrap">Sr. No.</p>
@@ -96,36 +105,20 @@
         <!-- Percentage -->
         <div
           id="percentage-box"
-          class="flex gap-3 justify-between mt-4"
+          class="flex md:flex-nowrap flex-wrap gap-3 justify-between items-start mt-4"
           style="display: none"
         >
           <button
             id="calculate-percentage"
             type="button"
-            class="bg-zinc-600 font-medium text-lg whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer"
+            class="bg-zinc-600 font-medium lg:text-lg text-base whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 md:w-fit w-full transition duration-500 cursor-pointer"
           >
             Calculate Marks & Percentage
           </button>
-          <div class="flex gap-3 items-center">
-            <p
-              id="show-total-marks"
-              class="text-xl font-medium text-end leading-none"
-            >
-              Total Marks = 600
-            </p>
-            <p
-              id="show-obtained-marks"
-              class="text-xl font-medium text-end leading-none"
-            >
-              Obtained Marks = 500
-            </p>
-            <p
-              id="show-percentage"
-              class="text-xl font-medium text-end leading-none"
-            >
-              Percentage = 80%
-            </p>
-          </div>
+          <p
+            id="show-total-marks"
+            class="lg:text-lg text-base w-full leading-7 text-end"
+          ></p>
         </div>
       </div>
     </section>
