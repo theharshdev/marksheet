@@ -97,7 +97,7 @@ addToTableBtn.addEventListener("click", () => {
     }
 
     let newDate = ` <!-- Subject ${serialNumber} -->
-                    <div class="grid grid-cols-6 gap-3 lg:text-xl text-lg uppercase">
+                    <div class="grid grid-cols-6 gap-3 lg:text-lg text-base uppercase">
                     <p>${serialNumber}.</p>
                     <p class="subject">${subjectNameInp.value}</p>
                     <p class="text-center totalmakrs">${totalMarksInp.value}</p>
