@@ -14,7 +14,6 @@ const warningPara = document.getElementById("warning-para");
 const clearTableBtn = document.getElementById("clear-table-btn");
 
 let data = "";
-let serialNumber = 1;
 let savedData = "";
 
 addToTableBtn.addEventListener("click", () => {
@@ -88,7 +87,7 @@ addToTableBtn.addEventListener("click", () => {
         grade = "D";
         break;
 
-      case percentage >= 40:
+      case percentage >= 33:
         grade = "E";
         break;
 
@@ -96,16 +95,14 @@ addToTableBtn.addEventListener("click", () => {
         grade = "Fail";
     }
 
-    let newDate = ` <!-- Subject ${serialNumber} -->
-                    <div class="grid grid-cols-6 gap-3 lg:text-lg text-base uppercase">
-                    <p>${serialNumber}.</p>
+    let newDate = `<div class="grid grid-cols-5 gap-3 lg:text-base text-sm uppercase subject-row">
                     <p class="subject">${subjectNameInp.value}</p>
                     <p class="text-center totalmakrs">${totalMarksInp.value}</p>
                     <p class="text-center obtainedmarks">${obtainedMarksInp.value}</p>
                     <p class="text-center grades">${grade}</p>
                     <button
                         type="button"
-                        class="text-center delete-btn inline-block w-fit mx-auto hover:text-red-500 cursor-pointer delete-subject-row-btn transition duration-500"
+                        class="text-center delete-btn inline-block w-fit mx-auto hover:text-red-500 cursor-pointer transition duration-500"
                     >
                         <i class="bi bi-trash-fill"></i>
                     </button>
@@ -114,8 +111,6 @@ addToTableBtn.addEventListener("click", () => {
     data += newDate;
     mainTable.innerHTML = data;
     localStorage.setItem("marksheetData", data);
-    serialNumber += 1;
-    localStorage.setItem("serialNumber", serialNumber);
     clearTableBtn.classList.remove("hidden");
     warningPara.textContent = "Feilds with * is mendatory to fill.";
 
@@ -164,7 +159,6 @@ window.addEventListener("load", () => {
   let storedData = localStorage.getItem("marksheetData");
 
   if (storedData != null && storedData != "") {
-    serialNumber = Number(localStorage.getItem("serialNumber"));
     data = storedData;
     mainTable.innerHTML = storedData;
     clearTableBtn.classList.remove("hidden");
@@ -175,8 +169,19 @@ window.addEventListener("load", () => {
 clearTableBtn.addEventListener("click", () => {
   data = "";
   localStorage.setItem("marksheetData", "");
-  localStorage.setItem("serialNumber", "");
   clearTableBtn.classList.add("hidden");
   percentageBox.style.display = "none";
   mainTable.innerHTML = "";
+});
+
+mainTable.addEventListener("click", (e) => {
+  const deleteBtn = e.target.closest(".delete-btn");
+  if (!deleteBtn) return;
+
+  const row = deleteBtn.closest(".subject-row");
+  if (!row) return;
+
+  row.remove();
+  localStorage.setItem("marksheetData", mainTable.innerHTML);
+  showTotalMarksElm.textContent = "";
 });
