@@ -16,6 +16,24 @@ const clearTableBtn = document.getElementById("clear-table-btn");
 let data = "";
 let savedData = "";
 
+// Subject name validation
+subjectNameInp.addEventListener("input", () => {
+  subjectNameInp.value = subjectNameInp.value.replace(/[^A-Za-z ]/g, "");
+});
+
+// Marks validation (max 3 digits)
+function limitToThreeDigits(input) {
+  input.value = input.value.replace(/\D/g, "").slice(0, 3);
+}
+
+totalMarksInp.addEventListener("input", () => {
+  limitToThreeDigits(totalMarksInp);
+});
+
+obtainedMarksInp.addEventListener("input", () => {
+  limitToThreeDigits(obtainedMarksInp);
+});
+
 addToTableBtn.addEventListener("click", () => {
   let subjects = [];
   let findSubject;
