@@ -169,8 +169,6 @@ calculatePercentageMarks.addEventListener("click", () => {
   const totalPercentage = (totalObtainedMarks / totalMaxMarks) * 100;
 
   showTotalMarksElm.innerHTML = `Total Max. Marks = ${totalMaxMarks} <br /> Total Obtained Marks = ${totalObtainedMarks} <br /> Total Percentage = ${totalPercentage.toFixed(2)}%`;
-
-  console.log(totalMaxMarks, totalObtainedMarks, totalPercentage.toFixed(2));
 });
 
 window.addEventListener("load", () => {
