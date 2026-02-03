@@ -118,12 +118,8 @@ addToTableBtn.addEventListener("click", () => {
                     <p class="text-center totalmakrs">${totalMarksInp.value}</p>
                     <p class="text-center obtainedmarks">${obtainedMarksInp.value}</p>
                     <p class="text-center grades">${grade}</p>
-                    <button
-                        type="button"
-                        class="text-center delete-btn inline-block w-fit mx-auto hover:text-red-500 cursor-pointer transition duration-500"
-                    >
-                        <i class="bi bi-trash-fill"></i>
-                    </button>
+                    <button type="button" class="text-center delete-btn inline-block w-fit mx-auto hover:text-red-500
+                     cursor-pointer transition duration-500"><i class="bi bi-trash-fill"></i></button>
                     </div>`;
 
     data += newDate;
