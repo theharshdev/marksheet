@@ -11,109 +11,125 @@
     <title>Marksheet</title>
   </head>
   <body class="bg-zinc-800 text-zinc-200">
-    <section class="max-w-7xl mx-auto py-12 px-4">
-      <!-- Hero Text -->
-      <div class="text-center max-w-md mx-auto mb-8">
-        <h3 class="text-3xl font-medium">Marks & Percentage Calculator</h3>
-        <p class="text-base text-zinc-400 mt-3">
-          Calculate total marks and percentage by adding subject-wise scores.
-        </p>
-      </div>
-      <div class="text-zinc-400">
-        <p
-          id="warning-para"
-          class="text-sm text-center mb-3 transition duration-500"
-        >
-          Feilds with * is mendatory to fill.
-        </p>
-      </div>
-      <!-- Form -->
-      <div class="lg:flex grid md:grid-cols-2 grid-cols-1 gap-3">
-        <input
-          autocomplete="off"
-          type="text"
-          id="subject-name"
-          placeholder="Name your subject*"
-          class="block w-full border border-zinc-600 rounded-md outline-0 focus:bg-zinc-700 transition duration-500 py-3 px-6 placeholder:text-zinc-400 font-medium autofill:bg-transparent autofill:shadow-none"
-        />
-        <input
-          autocomplete="off"
-          type="number"
-          id="total-marks"
-          placeholder="Enter the maximum marks*"
-          class="block w-full border border-zinc-600 rounded-md outline-0 focus:bg-zinc-700 transition duration-500 py-3 px-6 placeholder:text-zinc-400 font-medium"
-        />
-        <input
-          autocomplete="off"
-          type="number"
-          id="obtained-marks"
-          placeholder="Enter obtained marks*"
-          class="block w-full border border-zinc-600 rounded-md outline-0 focus:bg-zinc-700 transition duration-500 py-3 px-6 placeholder:text-zinc-400 font-medium"
-        />
-        <button
-          id="add-to-table-btn"
-          type="button"
-          class="bg-zinc-600 font-medium lg:text-base text-sm whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer"
-        >
-          Add to table
-        </button>
-      </div>
-      <!-- Marksheet -->
-      <div
-        class="p-5 mt-3 border border-zinc-600 rounded-md bg-zinc-700/30 relative"
-      >
-        <div
-          class="flex md:flex-nowrap flex-wrap justify-between items-center gap-4"
-        >
-          <h3
-            class="lg:text-xl md:text-start text-center text-lg font-medium w-full"
+    <section
+      class="max-w-7xl mx-auto py-12 px-4 min-h-dvh flex flex-col gap-4 justify-between"
+    >
+      <div>
+        <!-- Hero Text -->
+        <div class="text-center max-w-md mx-auto mb-8">
+          <h3 class="text-3xl font-medium">Marks & Percentage Calculator</h3>
+          <p class="text-base text-zinc-400 mt-3">
+            Calculate total marks and percentage by adding subject-wise scores.
+          </p>
+        </div>
+        <div class="text-zinc-400">
+          <p
+            id="warning-para"
+            class="text-sm text-center mb-3 transition duration-500"
           >
-            Subject Marks Summary
-          </h3>
+            Feilds with * is mendatory to fill.
+          </p>
+        </div>
+        <!-- Form -->
+        <div class="lg:flex grid md:grid-cols-2 grid-cols-1 gap-3">
+          <input
+            autocomplete="off"
+            type="text"
+            id="subject-name"
+            placeholder="Name your subject*"
+            class="block w-full border border-zinc-600 rounded-md outline-0 focus:bg-zinc-700 transition duration-500 py-3 px-6 placeholder:text-zinc-400 font-medium autofill:bg-transparent autofill:shadow-none"
+          />
+          <input
+            autocomplete="off"
+            type="number"
+            id="total-marks"
+            placeholder="Enter the maximum marks*"
+            class="block w-full border border-zinc-600 rounded-md outline-0 focus:bg-zinc-700 transition duration-500 py-3 px-6 placeholder:text-zinc-400 font-medium"
+          />
+          <input
+            autocomplete="off"
+            type="number"
+            id="obtained-marks"
+            placeholder="Enter obtained marks*"
+            class="block w-full border border-zinc-600 rounded-md outline-0 focus:bg-zinc-700 transition duration-500 py-3 px-6 placeholder:text-zinc-400 font-medium"
+          />
           <button
-            id="clear-table-btn"
+            id="add-to-table-btn"
             type="button"
-            class="bg-zinc-600 font-medium md:w-fit w-full lg:text-base text-sm whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer hidden"
+            class="bg-zinc-600 font-medium lg:text-base text-sm whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer"
           >
-            Clear the Table
+            Add to table
           </button>
         </div>
-        <!-- Main table -->
-        <div class="overflow-auto mt-5 border border-zinc-600 rounded-md">
-          <div class="p-5 bg-zinc-800 min-w-225">
-            <!-- Header -->
-            <div
-              class="grid grid-cols-5 gap-3 text-lg font-medium whitespace-nowrap"
+        <!-- Marksheet -->
+        <div
+          class="p-5 mt-3 border border-zinc-600 rounded-md bg-zinc-700/30 relative"
+        >
+          <div
+            class="flex md:flex-nowrap flex-wrap justify-between items-center gap-4"
+          >
+            <h3
+              class="lg:text-xl md:text-start text-center text-lg font-medium w-full"
             >
-              <p>Subject Name</p>
-              <p class="text-center">Marks</p>
-              <p class="text-center">Obtained Marks</p>
-              <p class="text-center">Grade</p>
-              <p class="text-center">Action</p>
+              Subject Marks Summary
+            </h3>
+            <button
+              id="clear-table-btn"
+              type="button"
+              class="bg-zinc-600 font-medium md:w-fit w-full lg:text-base text-sm whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer hidden"
+            >
+              Clear the Table
+            </button>
+          </div>
+          <!-- Main table -->
+          <div class="overflow-auto mt-5 border border-zinc-600 rounded-md">
+            <div class="p-5 bg-zinc-800 min-w-225">
+              <!-- Header -->
+              <div
+                class="grid grid-cols-5 gap-3 text-lg font-medium whitespace-nowrap"
+              >
+                <p>Subject Name</p>
+                <p class="text-center">Marks</p>
+                <p class="text-center">Obtained Marks</p>
+                <p class="text-center">Grade</p>
+                <p class="text-center">Action</p>
+              </div>
+              <!-- Body -->
+              <div id="main-table" class="flex flex-col gap-3 mt-3"></div>
             </div>
-            <!-- Body -->
-            <div id="main-table" class="flex flex-col gap-3 mt-3"></div>
+          </div>
+          <!-- Percentage -->
+          <div
+            id="percentage-box"
+            class="flex md:flex-nowrap flex-wrap gap-3 justify-between items-start mt-4"
+            style="display: none"
+          >
+            <button
+              id="calculate-percentage"
+              type="button"
+              class="bg-zinc-600 font-medium lg:text-base text-sm whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 md:w-fit w-full transition duration-500 cursor-pointer"
+            >
+              Calculate Marks & Percentage
+            </button>
+            <p
+              id="show-total-marks"
+              class="lg:text-lg text-base w-full leading-7 text-end border border-zinc-600 rounded-md md:w-fit bg-zinc-700"
+            ></p>
           </div>
         </div>
-        <!-- Percentage -->
-        <div
-          id="percentage-box"
-          class="flex md:flex-nowrap flex-wrap gap-3 justify-between items-start mt-4"
-          style="display: none"
-        >
-          <button
-            id="calculate-percentage"
-            type="button"
-            class="bg-zinc-600 font-medium lg:text-base text-sm whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 md:w-fit w-full transition duration-500 cursor-pointer"
-          >
-            Calculate Marks & Percentage
-          </button>
-          <p
-            id="show-total-marks"
-            class="lg:text-lg text-base w-full leading-7 text-end border border-zinc-600 rounded-md md:w-fit bg-zinc-700"
-          ></p>
-        </div>
       </div>
+      <!-- Footer -->
+      <footer class="text-center text-sm leading-none">
+        Made by
+        <a
+          href="https://theharsh.vercel.app/"
+          target="_blank"
+          class="underline"
+        >
+          Harsh Kushwaha
+        </a>
+        with <span class="text-yellow-400 italic">"love"</span>.
+      </footer>
     </section>
     <script src="./script.js"></script>
   </body>

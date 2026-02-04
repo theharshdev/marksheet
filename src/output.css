@@ -8,12 +8,14 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-yellow-400: oklch(85.2% 0.199 91.936);
     --color-zinc-200: oklch(92% 0.004 286.32);
     --color-zinc-400: oklch(70.5% 0.015 286.067);
     --color-zinc-500: oklch(55.2% 0.016 285.938);
     --color-zinc-600: oklch(44.2% 0.017 285.786);
     --color-zinc-700: oklch(37% 0.013 285.805);
     --color-zinc-800: oklch(27.4% 0.006 286.033);
+    --color-zinc-900: oklch(21% 0.006 285.885);
     --spacing: 0.25rem;
     --container-md: 28rem;
     --container-7xl: 80rem;
@@ -223,6 +225,9 @@
   .table {
     display: table;
   }
+  .min-h-dvh {
+    min-height: 100dvh;
+  }
   .w-fit {
     width: fit-content;
   }
@@ -238,8 +243,14 @@
   .min-w-225 {
     min-width: calc(var(--spacing) * 225);
   }
+  .border-collapse {
+    border-collapse: collapse;
+  }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .resize {
+    resize: both;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -271,6 +282,9 @@
   .overflow-auto {
     overflow: auto;
   }
+  .rounded {
+    border-radius: 0.25rem;
+  }
   .rounded-md {
     border-radius: var(--radius-md);
   }
@@ -299,6 +313,12 @@
   }
   .bg-zinc-800 {
     background-color: var(--color-zinc-800);
+  }
+  .bg-zinc-900 {
+    background-color: var(--color-zinc-900);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
   }
   .p-5 {
     padding: calc(var(--spacing) * 5);
@@ -347,6 +367,10 @@
     --tw-leading: calc(var(--spacing) * 7);
     line-height: calc(var(--spacing) * 7);
   }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
   .font-medium {
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
@@ -357,6 +381,9 @@
   .text-red-500 {
     color: var(--color-red-500);
   }
+  .text-yellow-400 {
+    color: var(--color-yellow-400);
+  }
   .text-zinc-200 {
     color: var(--color-zinc-200);
   }
@@ -365,6 +392,16 @@
   }
   .uppercase {
     text-transform: uppercase;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .outline-0 {
     outline-style: var(--tw-outline-style);
