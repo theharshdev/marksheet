@@ -12,16 +12,19 @@
   </head>
   <body class="bg-zinc-800 text-zinc-200">
     <section
-      class="max-w-7xl mx-auto py-12 px-4 min-h-dvh flex flex-col gap-4 justify-between"
+      class="max-w-7xl mx-auto py-8 px-4 min-h-dvh flex flex-col gap-8 justify-between"
     >
-      <div>
+      <main>
+        <div class="text-3xl mb-4 text-center">
+          <i class="bi bi-calculator"></i>
+        </div>
         <!-- Hero Text -->
-        <div class="text-center max-w-md mx-auto mb-8">
+        <header class="text-center max-w-md mx-auto mb-8">
           <h3 class="text-3xl font-medium">Marks & Percentage Calculator</h3>
           <p class="text-base text-zinc-400 mt-3">
             Calculate total marks and percentage by adding subject-wise scores.
           </p>
-        </div>
+        </header>
         <div class="text-zinc-400">
           <p
             id="warning-para"
@@ -58,7 +61,7 @@
             type="button"
             class="bg-zinc-600 font-medium lg:text-base text-sm whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer"
           >
-            Add to table
+            Add to table <i class="bi bi-plus-lg"></i>
           </button>
         </div>
         <!-- Marksheet -->
@@ -78,7 +81,7 @@
               type="button"
               class="bg-zinc-600 font-medium md:w-fit w-full lg:text-base text-sm whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 transition duration-500 cursor-pointer hidden"
             >
-              Clear the Table
+              Clear the Table <i class="bi bi-trash3"></i>
             </button>
           </div>
           <!-- Main table -->
@@ -109,7 +112,7 @@
               type="button"
               class="bg-zinc-600 font-medium lg:text-base text-sm whitespace-nowrap py-3 px-8 rounded-md border-0 outline-0 hover:bg-zinc-500 md:w-fit w-full transition duration-500 cursor-pointer"
             >
-              Calculate Marks & Percentage
+              Calculate Marks & Percentage <i class="bi bi-hourglass"></i>
             </button>
             <p
               id="show-total-marks"
@@ -117,7 +120,7 @@
             ></p>
           </div>
         </div>
-      </div>
+      </main>
       <!-- Footer -->
       <footer class="text-center text-sm leading-none">
         Made by
@@ -128,7 +131,10 @@
         >
           Harsh Kushwaha
         </a>
-        with <span class="text-yellow-400 italic">"love"</span>.
+        with
+        <span class="text-yellow-400 italic">
+          "love <i class="bi bi-heart"></i>" </span
+        >.
       </footer>
     </section>
     <script src="./script.js"></script>
