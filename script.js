@@ -80,34 +80,20 @@ addToTableBtn.addEventListener("click", () => {
 
     let grade;
 
-    // Decide grade
-    switch (true) {
-      case percentage >= 90:
-        grade = "A+";
-        break;
-
-      case percentage >= 80:
-        grade = "A";
-        break;
-
-      case percentage >= 70:
-        grade = "B";
-        break;
-
-      case percentage >= 60:
-        grade = "C";
-        break;
-
-      case percentage >= 50:
-        grade = "D";
-        break;
-
-      case percentage >= 33:
-        grade = "E";
-        break;
-
-      default:
-        grade = "Fail";
+    if (percentage >= 90) {
+      grade = "A+";
+    } else if (percentage >= 80) {
+      grade = "A";
+    } else if (percentage >= 70) {
+      grade = "B";
+    } else if (percentage >= 60) {
+      grade = "C";
+    } else if (percentage >= 50) {
+      grade = "D";
+    } else if (percentage >= 33) {
+      grade = "E";
+    } else {
+      grade = "FAIL";
     }
 
     let newDate = `<div class="grid grid-cols-5 gap-3 lg:text-base text-sm uppercase subject-row">
@@ -115,7 +101,7 @@ addToTableBtn.addEventListener("click", () => {
                     <p class="text-center totalmakrs">${totalMarksInp.value}</p>
                     <p class="text-center obtainedmarks">${obtainedMarksInp.value}</p>
                     <p class="text-center grades">${grade}</p>
-                    <button type="button" class="text-center delete-btn inline-block w-fit mx-auto hover:text-red-500 cursor-pointer transition duration-500"><i class="bi bi-trash-fill"></i></button>
+                    <button type="button" class="text-center delete-btn inline-block w-fit mx-auto hover:text-red-500 cursor-pointer transition duration-500"><i class="bi bi-trash3"></i></button>
                     </div>`;
 
     data += newDate;
