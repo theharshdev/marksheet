@@ -12,7 +12,6 @@ const warningPara = document.getElementById("warning-para");
 const clearTableBtn = document.getElementById("clear-table-btn");
 
 let data = "";
-let savedData = "";
 
 // Subject name validation
 subjectNameInp.addEventListener("input", () => {
@@ -116,8 +115,7 @@ addToTableBtn.addEventListener("click", () => {
                     <p class="text-center totalmakrs">${totalMarksInp.value}</p>
                     <p class="text-center obtainedmarks">${obtainedMarksInp.value}</p>
                     <p class="text-center grades">${grade}</p>
-                    <button type="button" class="text-center delete-btn inline-block w-fit mx-auto hover:text-red-500
-                     cursor-pointer transition duration-500"><i class="bi bi-trash-fill"></i></button>
+                    <button type="button" class="text-center delete-btn inline-block w-fit mx-auto hover:text-red-500 cursor-pointer transition duration-500"><i class="bi bi-trash-fill"></i></button>
                     </div>`;
 
     data += newDate;
@@ -129,7 +127,10 @@ addToTableBtn.addEventListener("click", () => {
     subjectNameInp.value = "";
     totalMarksInp.value = "";
     obtainedMarksInp.value = "";
-    showTotalMarksElm.innerHTML = "";
+
+    if (showTotalMarksElm.innerHTML != "") {
+      calculateTotalmarks();
+    }
   } else {
     warningPara.classList.add("text-red-500");
     if (findSubject) {
@@ -145,7 +146,7 @@ addToTableBtn.addEventListener("click", () => {
   }
 });
 
-calPerMarks.addEventListener("click", () => {
+function calculateTotalmarks() {
   const totalmakrs = mainTable.querySelectorAll(".totalmakrs");
   const obtainedmarks = mainTable.querySelectorAll(".obtainedmarks");
 
@@ -163,7 +164,9 @@ calPerMarks.addEventListener("click", () => {
   const totalPercentage = (totalObtainedMarks / totalMaxMarks) * 100;
 
   showTotalMarksElm.innerHTML = `<div class="py-4 px-6">Total Max. Marks = ${totalMaxMarks} <br /> Total Obtained Marks = ${totalObtainedMarks} <br /> Total Percentage = ${totalPercentage.toFixed(2)}%</div>`;
-});
+}
+
+calPerMarks.addEventListener("click", calculateTotalmarks);
 
 window.addEventListener("load", () => {
   let storedData = localStorage.getItem("marksheetData");
@@ -182,6 +185,7 @@ clearTableBtn.addEventListener("click", () => {
   clearTableBtn.classList.add("hidden");
   percentageBox.style.display = "none";
   mainTable.innerHTML = "";
+  showTotalMarksElm.innerHTML = "";
 });
 
 mainTable.addEventListener("click", (e) => {
@@ -192,6 +196,19 @@ mainTable.addEventListener("click", (e) => {
   if (!row) return;
 
   row.remove();
+  data = mainTable.innerHTML;
   localStorage.setItem("marksheetData", mainTable.innerHTML);
-  showTotalMarksElm.textContent = "";
+
+  if (showTotalMarksElm.innerHTML != "") {
+    calculateTotalmarks();
+  }
+
+  const subjectRow = document.querySelectorAll(".subject-row");
+  console.log(subjectRow.length);
+
+  if (subjectRow.length === 0) {
+    percentageBox.style.display = "none";
+    clearTableBtn.classList.add("hidden");
+    showTotalMarksElm.innerHTML = "";
+  }
 });
