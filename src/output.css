@@ -288,6 +288,9 @@
   .bg-zinc-600 {
     background-color: var(--color-zinc-600);
   }
+  .bg-zinc-700 {
+    background-color: var(--color-zinc-700);
+  }
   .bg-zinc-700\/30 {
     background-color: color-mix(in srgb, oklch(37% 0.013 285.805) 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -311,6 +314,9 @@
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
   }
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
@@ -431,6 +437,11 @@
   .lg\:flex {
     @media (width >= 64rem) {
       display: flex;
+    }
+  }
+  .lg\:w-fit {
+    @media (width >= 64rem) {
+      width: fit-content;
     }
   }
   .lg\:text-base {

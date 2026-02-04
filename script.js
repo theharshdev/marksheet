@@ -1,8 +1,6 @@
 const subjectNameInp = document.getElementById("subject-name");
 const totalMarksInp = document.getElementById("total-marks");
-const calculatePercentageMarks = document.getElementById(
-  "calculate-percentage",
-);
+const calPerMarks = document.getElementById("calculate-percentage");
 const mainTable = document.getElementById("main-table");
 const obtainedMarksInp = document.getElementById("obtained-marks");
 const addToTableBtn = document.getElementById("add-to-table-btn");
@@ -147,7 +145,7 @@ addToTableBtn.addEventListener("click", () => {
   }
 });
 
-calculatePercentageMarks.addEventListener("click", () => {
+calPerMarks.addEventListener("click", () => {
   const totalmakrs = mainTable.querySelectorAll(".totalmakrs");
   const obtainedmarks = mainTable.querySelectorAll(".obtainedmarks");
 
@@ -164,7 +162,7 @@ calculatePercentageMarks.addEventListener("click", () => {
 
   const totalPercentage = (totalObtainedMarks / totalMaxMarks) * 100;
 
-  showTotalMarksElm.innerHTML = `Total Max. Marks = ${totalMaxMarks} <br /> Total Obtained Marks = ${totalObtainedMarks} <br /> Total Percentage = ${totalPercentage.toFixed(2)}%`;
+  showTotalMarksElm.innerHTML = `<div class="py-4 px-6">Total Max. Marks = ${totalMaxMarks} <br /> Total Obtained Marks = ${totalObtainedMarks} <br /> Total Percentage = ${totalPercentage.toFixed(2)}%</div>`;
 });
 
 window.addEventListener("load", () => {
